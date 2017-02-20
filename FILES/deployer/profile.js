@@ -110,6 +110,7 @@ var lib = {
         wstream.write('    }\n');
         wstream.write('};\n');
 		wstream.write("console.log(soajsProfile);");
+		wstream.write("module.exports = soajsProfile;");
         wstream.end();
         return cb(null);
     }
