@@ -63,7 +63,7 @@ var lib = {
         var wstream = fs.createWriteStream(param.loc + param.profileFileName);
 
         wstream.write('\'use strict\';\n');
-        wstream.write('module.exports = {\n');
+        wstream.write('var soajsProfile = {\n');
         wstream.write('    "name": "core_provision",\n');
         wstream.write('    "prefix": "' + mongoPrefix + '",\n');
         wstream.write('    "servers": [\n');
@@ -97,7 +97,7 @@ var lib = {
         wstream.write('        "maxPoolSize": 2,\n');
         wstream.write('        "readPreference": "secondaryPreferred",\n');
         wstream.write('        "replicaSet": "' + param.rsName + '",\n');
-        wstream.write('        "w": "majority,"\n');
+        wstream.write('        "w": "majority",\n');
         wstream.write('        "ha": true\n');
         wstream.write('    },\n');
         wstream.write('    "extraParam": {\n');
@@ -109,7 +109,7 @@ var lib = {
         wstream.write('        }\n');
         wstream.write('    }\n');
         wstream.write('};\n');
-
+		wstream.write("console.log(soajsProfile);");
         wstream.end();
         return cb(null);
     }
